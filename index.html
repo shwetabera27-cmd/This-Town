@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>This Town – A Sweet Home for Students' Metronome</title>
+  
+  <!-- Google Fonts: Quicksand for cozy headings, Nunito for clean reading, Caveat for playful doodles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mobile-frame-mode">
+  
+  <!-- Top Utility Bar: Device view switcher, account status and sign-out -->
+  <header class="top-meta-bar">
+    <div class="app-branding">
+      <span class="town-logo">🏡</span>
+      <span class="app-title-text">This Town <span class="tagline">• Student's Metronome</span></span>
+    </div>
+
+    <!-- User Account Status & Sign Out / Log In -->
+    <div class="user-session-bar" id="user-session-bar">
+      <div class="user-chip" id="user-chip-btn" title="Click to view account">
+        <span class="user-avatar-dot">●</span>
+        <span class="user-name-label" id="top-user-name">Shweta</span>
+        <span class="user-email-label" id="top-user-email">(shweta@student.edu)</span>
+      </div>
+      <button class="btn-auth-action btn-signout" id="btn-top-signout" title="Sign out of account">
+        <span>🚪 Sign Out</span>
+      </button>
+      <button class="btn-auth-action btn-login" id="btn-top-login" style="display:none;" title="Log in or create account">
+        <span>🔑 Log In / Sign Up</span>
+      </button>
+    </div>
+    
+    <div class="view-toggles">
+      <button class="view-btn active" id="btn-mobile-view" title="Mobile Frame (as sketched)">📱 Mobile View</button>
+      <button class="view-btn" id="btn-desktop-view" title="Wide View">💻 Expanded View</button>
+    </div>
+  </header>
+
+  <!-- Main Application Wrapper -->
+  <div class="app-container" id="app-container">
+    <div class="screen-viewport">
+      
+      <!-- ============================================== -->
+      <!-- SCREEN 1: HOME DASHBOARD (PRIMARY TASK)        -->
+      <!-- ============================================== -->
+      <main class="screen-content active" id="screen-home">
+        
+        <!-- SECTION A: Welcome Header -->
+        <section class="welcome-header">
+          <div class="greeting-left">
+            <div class="hello-row">
+              <h1 class="welcome-heading">Hello, <span id="student-name-display" class="editable-name" title="Click to edit profile">Shweta</span>!</h1>
+              <span class="smiley-illustration" title="Smiling with you!">^_^</span>
+            </div>
+            <p class="greeting-subtext">Welcome to your cozy sanctuary for study & rest</p>
+          </div>
+          
+          <div class="header-actions">
+            <!-- Metronome Quick Rhythm Pulse -->
+            <button class="metronome-badge" id="quick-metronome-btn" title="Toggle Calm Study Rhythm (60 BPM)">
+              <span class="metronome-icon-wrap" id="header-metronome-icon"></span>
+              <span class="bpm-text"><span id="header-bpm">60</span> bpm</span>
+            </button>
+            
+            <!-- User Account / Profile Icon -->
+            <button class="account-btn" id="header-account-btn" title="Open Personal Corner Profile">
+              <div class="avatar-ring">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="account-label">User</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- SECTION B: Daily Motivation Card -->
+        <section class="motivation-card-container">
+          <div class="motivation-card">
+            <div class="motivation-text-col">
+              <div class="motivation-tag-row">
+                <span class="badge-tag" id="quote-category">Daily Thought ✨</span>
+                <button class="refresh-quote-btn" id="btn-next-quote" title="Show another uplifting thought">
+                  <span>✨ New Thought</span>
+                </button>
+              </div>
+              
+              <blockquote class="quote-text" id="daily-quote-text">
+                "YOU ARE BRAVER than you believe, STRONGER than you seem, SMARTER than you think, and LOVED more than you know."
+              </blockquote>
+              
+              <cite class="quote-author" id="daily-quote-author">
+                — Christopher Robin to Pooh
+              </cite>
+            </div>
+            
+            <div class="motivation-illustration-col" id="bear-illustration-container">
+              <!-- Winnie-the-pooh style SVG injected here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION C: "LET'S PLAN!" Fluffy Cloud Section -->
+        <section class="lets-plan-container">
+          <div class="cloud-card">
+            <!-- Cloud SVG decorative lobes -->
+            <div class="cloud-blob blob-1"></div>
+            <div class="cloud-blob blob-2"></div>
+            <div class="cloud-blob blob-3"></div>
+            <div class="cloud-blob blob-4"></div>
+            
+            <div class="cloud-inner-content">
+              <div class="cloud-text">
+                <div class="plan-badge">⏰ Ready for today?</div>
+                <h2 class="cloud-title">LET'S PLAN !</h2>
+                <p class="cloud-subtitle">Set a balanced timetable for study, hobbies & rest</p>
+              </div>
+              
+              <button class="start-btn pulse-action" id="btn-start-plan" title="Go to Today's Schedule (Screen 2)">
+                <span class="start-btn-text">START</span>
+                <span class="start-arrow">➔</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STUDENT JOURNEY MAP / FLOWCHART (How to Use This App) -->
+        <section class="journey-map-section" id="section-app-journey-map">
+          <div class="journey-map-card">
+            <div class="journey-map-header">
+              <div class="journey-title-wrap">
+                <span class="journey-icon-badge">🗺️</span>
+                <div>
+                  <h3 class="journey-heading">How This Town Metronome Works</h3>
+                  <p class="journey-subheading">Your steady daily rhythm from morning study to peaceful sleep</p>
+                </div>
+              </div>
+              <button class="btn-toggle-journey" id="btn-toggle-journey-map" title="Minimize / Expand Roadmap Guide">
+                <span id="journey-toggle-symbol">▲ Collapse</span>
+              </button>
+            </div>
+
+            <div class="journey-flow-body" id="journey-flow-body">
+              <div class="flowchart-track">
+                
+                <!-- Step 1 -->
+                <div class="flow-step-node" id="map-step-1" role="button" tabindex="0" title="Click to open Personal Corner">
+                  <div class="node-number-badge">Step 1</div>
+                  <div class="node-icon-circle">🏡</div>
+                  <div class="node-content">
+                    <h4 class="node-title">Personal Corner</h4>
+                    <p class="node-desc">Set your school, tuition, meals, sleep timings and hourly learning pace.</p>
+                    <span class="node-action-link">Open Settings ➔</span>
+                  </div>
+                </div>
+
+                <div class="flow-connector-arrow">
+                  <span class="arrow-glyph">➔</span>
+                  <span class="arrow-label">Sets Rhythm</span>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flow-step-node" id="map-step-2" role="button" tabindex="0" title="Click to go to Today's Schedule">
+                  <div class="node-number-badge">Step 2</div>
+                  <div class="node-icon-circle">⏰</div>
+                  <div class="node-content">
+                    <h4 class="node-title">"LET'S PLAN!" Schedule</h4>
+                    <p class="node-desc">Hit START to see your timetable. Study in time slots and tick daily commitments when done.</p>
+                    <span class="node-action-link">Open Timetable ➔</span>
+                  </div>
+                </div>
+
+                <div class="flow-connector-arrow">
+                  <span class="arrow-glyph">➔</span>
+                  <span class="arrow-label">Maintains Pace</span>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flow-step-node" id="map-step-3" role="button" tabindex="0" title="Click to view Goals & Progress">
+                  <div class="node-number-badge">Step 3</div>
+                  <div class="node-icon-circle">🎯</div>
+                  <div class="node-content">
+                    <h4 class="node-title">Goals & 60 BPM Pace</h4>
+                    <p class="node-desc">Lock in daily, weekly and monthly goals. Follow the steady metronome beat without cramming.</p>
+                    <span class="node-action-link">View Goals ➔</span>
+                  </div>
+                </div>
+
+                <div class="flow-connector-arrow">
+                  <span class="arrow-glyph">➔</span>
+                  <span class="arrow-label">Evening Review</span>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flow-step-node" id="map-step-4" role="button" tabindex="0" title="Click to review day & listen to music">
+                  <div class="node-number-badge">Step 4</div>
+                  <div class="node-icon-circle">🌙</div>
+                  <div class="node-content">
+                    <h4 class="node-title">End Day & Music</h4>
+                    <p class="node-desc">Reschedule unfinished tasks, add tasks for tomorrow, and end with peaceful YouTube/Hindi/English songs.</p>
+                    <span class="node-action-link">Review Day ➔</span>
+                  </div>
+                </div>
+
+              </div>
+              
+              <div class="journey-quick-legend">
+                <span class="legend-item"><span class="legend-dot dot-routine"></span> Fixed commitments (School & Tuition)</span>
+                <span class="legend-item"><span class="legend-dot dot-study"></span> Focused study slots</span>
+                <span class="legend-item"><span class="legend-dot dot-rest"></span> Meals, hobbies & wind-down rest</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MIDDLE TWO COLUMNS: Track Your Progress + Personal Corner (From Sketch) -->
+        <section class="middle-duo-grid">
+          
+          <!-- SECTION D: Track Your Progress Badge & Summary -->
+          <div class="card-badge-unit progress-unit" id="unit-progress">
+            <div class="hexagon-wrapper">
+              <div class="hexagon-badge" id="btn-open-progress-modal">
+                <!-- Cute Pink Ribbon Bow injected via SVG -->
+                <div class="ribbon-bow-anchor" id="ribbon-bow-container"></div>
+                
+                <div class="hexagon-inner">
+                  <span class="sparkle-icon">📊</span>
+                  <h3 class="badge-title">Track Your<br>Progress</h3>
+                  <span class="badge-hint">Tasks & Rhythms</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quick Progress Stats Preview -->
+            <div class="progress-mini-preview">
+              <div class="progress-pill-stat">
+                <span class="stat-circle-accent" id="mini-progress-pct">75%</span>
+                <span class="stat-desc">Daily Done</span>
+              </div>
+              <div class="progress-meter-bar">
+                <div class="meter-fill" id="mini-meter-fill" style="width: 75%;"></div>
+              </div>
+              <div class="progress-meta-text">
+                <span id="mini-tasks-count">3 of 4 tasks</span> completed
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION E: Personal Corner Badge & Summary -->
+          <div class="card-badge-unit personal-unit" id="unit-personal">
+            <div class="oval-wrapper">
+              <div class="oval-badge" id="btn-open-personal-corner" title="Click to view & edit your Personal Corner">
+                <div class="oval-inner-text">
+                  <span>P</span>
+                  <span>E</span>
+                  <span>R</span>
+                  <span>S</span>
+                  <span>O</span>
+                  <span>N</span>
+                  <span>A</span>
+                  <span>L</span>
+                  <span class="divider-space">•</span>
+                  <span>C</span>
+                  <span>O</span>
+                  <span>R</span>
+                  <span>N</span>
+                  <span>E</span>
+                  <span>R</span>
+                  <span class="heart-doodle">♡</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quick Personal Info Preview -->
+            <div class="personal-mini-preview">
+              <div class="student-grade-chip" id="mini-student-class">Class 10th</div>
+              <div class="student-timing-chip" id="mini-school-timing">🏫 07:45 - 02:00</div>
+              <button class="edit-corner-btn" id="btn-quick-edit-profile">
+                ✏️ Edit Details
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- SECTION F: GOAL Setting Section -->
+        <section class="goals-section">
+          <div class="goals-header-bar">
+            <!-- Star Badge motif from sketch -->
+            <div class="star-badge-wrap">
+              <div class="star-shape">
+                <svg viewBox="0 0 100 100" width="46" height="46" class="star-svg">
+                  <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" 
+                           fill="#FFE082" stroke="#FF8F00" stroke-width="3" stroke-linejoin="round"/>
+                </svg>
+                <span class="star-text">GOAL</span>
+              </div>
+            </div>
+            
+            <div class="goals-title-group">
+              <h3 class="goals-section-title">Your Goals & Targets</h3>
+              <p class="goals-section-sub">Steady steps bring big peace of mind</p>
+            </div>
+          </div>
+
+          <!-- Goal Scope Tabs: Daily, Weekly, Monthly -->
+          <div class="goals-tabs">
+            <button class="goal-tab-btn active" data-tab="daily">
+              <span>📅 Daily</span>
+              <span class="goal-tab-count" id="count-daily">4</span>
+            </button>
+            <button class="goal-tab-btn" data-tab="weekly">
+              <span>🗓️ Weekly</span>
+              <span class="goal-tab-count" id="count-weekly">4</span>
+            </button>
+            <button class="goal-tab-btn" data-tab="monthly">
+              <span>🎯 Monthly</span>
+              <span class="goal-tab-count" id="count-monthly">4</span>
+            </button>
+          </div>
+
+          <!-- Add Goal Quick Bar -->
+          <form class="add-goal-bar" id="form-add-goal">
+            <input type="text" id="input-goal-text" placeholder="Add a new goal (e.g. Revise Math Ch.4)..." required maxlength="120">
+            <select id="select-goal-category" class="category-select" title="Subject or Category">
+              <option value="Academic">📚 Study</option>
+              <option value="Maths">📐 Maths</option>
+              <option value="Science">🔬 Science</option>
+              <option value="English">📖 English</option>
+              <option value="Routine">⏰ Routine</option>
+              <option value="Health">🧘 Health</option>
+              <option value="Hobby">🎨 Hobby</option>
+            </select>
+            <button type="submit" class="btn-add-goal" title="Add Goal">
+              <span>+ Add</span>
+            </button>
+          </form>
+
+          <!-- Goals List Container -->
+          <div class="goals-list" id="goals-list-container">
+            <!-- Goal items dynamically rendered -->
+          </div>
+        </section>
+
+        <!-- Cozy Metronome Rhythm Footer Companion -->
+        <section class="rhythm-widget-box">
+          <div class="rhythm-header">
+            <div class="rhythm-title-wrap">
+              <span class="metronome-pendulum-dot"></span>
+              <span class="rhythm-title">The Student's Metronome</span>
+            </div>
+            <button class="btn-metronome-toggle" id="btn-toggle-metronome-audio">
+              <span id="audio-state-icon">▶</span>
+              <span id="audio-state-text">Play Steady Rhythm</span>
+            </button>
+          </div>
+          <div class="rhythm-controls">
+            <label for="bpm-slider" class="rhythm-label">Tempo: <span id="bpm-value-display">60</span> BPM (Calm Focus)</label>
+            <input type="range" id="bpm-slider" min="40" max="120" value="60" step="2" class="cozy-slider">
+            <p class="rhythm-description">A calm, unhurried tempo maintains balance in study, homework, meals and sleep.</p>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 2: TODAY'S SCHEDULE                     -->
+      <!-- Fully Interactive Timetable & Task Management  -->
+      <!-- ============================================== -->
+      <section class="screen-content schedule-screen" id="screen-schedule">
+        
+        <!-- Header & Top Navigation Bar -->
+        <div class="schedule-header-card">
+          <div class="schedule-top-nav">
+            <button class="btn-back-home" id="btn-back-from-schedule" title="Return to Home Dashboard">
+              <span>← Dashboard</span>
+            </button>
+            <div class="schedule-rhythm-badge" id="sched-rhythm-badge-btn" title="Steady Study Rhythm">
+              <span class="rhythm-pulse-dot"></span>
+              <span class="rhythm-badge-text">Metronome: <strong id="sched-tempo-val">60</strong> BPM</span>
+            </div>
+            <button class="btn-open-add-task" id="btn-open-add-task-top" title="Add a new task to your timetable">
+              <span>+ Add Task</span>
+            </button>
+          </div>
+
+          <div class="schedule-title-row">
+            <div class="title-text-group">
+              <h2 class="schedule-main-title">Today's Schedule 📅</h2>
+              <p class="schedule-subtitle">Balance commitments, tuition & study pace with steady rhythm</p>
+            </div>
+            <div class="schedule-quick-summary">
+              <div class="stat-bubble">
+                <span class="stat-num" id="sched-stat-completed">1</span>
+                <span class="stat-lbl">Done</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-num" id="sched-stat-pending">3</span>
+                <span class="stat-lbl">To Go</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-num" id="sched-stat-hours">3.8h</span>
+                <span class="stat-lbl">Study Time</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date & Filter Controls -->
+          <div class="schedule-controls-row">
+            <div class="date-display-badge">
+              <span class="calendar-icon">🗓️</span>
+              <span id="current-day-label">Today • Steady Daily Rhythm</span>
+            </div>
+
+            <div class="filter-pills" id="sched-filter-pills">
+              <button class="pill-btn active" data-filter="all">All Timetable</button>
+              <button class="pill-btn" data-filter="tasks">Study Tasks (<span id="pill-tasks-count">4</span>)</button>
+              <button class="pill-btn" data-filter="commitments">Commitments (<span id="pill-commitments-count">5</span>)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timetable Time-Slots Container -->
+        <div class="timetable-timeline-container" id="timetable-timeline-container">
+          <!-- Dynamically populated chronological timetable slots -->
+        </div>
+
+        <!-- Floating Quick Add Button (Mobile friendly) -->
+        <div class="floating-action-bar">
+          <button class="btn-floating-add" id="btn-floating-add-task" title="Add New Task">
+            <span class="plus-icon">+</span>
+            <span>Add Study Task</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 3: END YOUR DAY (TASK REVIEW & RESCHEDULE) -->
+      <!-- ============================================== -->
+      <section class="screen-content end-day-screen" id="screen-pending">
+        
+        <!-- Header Card -->
+        <div class="schedule-header-card end-day-header">
+          <div class="schedule-top-nav">
+            <button class="btn-back-home" id="btn-back-from-pending" title="Return to Dashboard">
+              <span>← Dashboard</span>
+            </button>
+            <div class="schedule-rhythm-badge">
+              <span class="rhythm-pulse-dot"></span>
+              <span class="rhythm-badge-text">Day Closing • Peaceful Rhythm</span>
+            </div>
+            <button class="btn-goto-music-top" id="btn-top-goto-music" title="Go to Bedtime Music & Mood">
+              <span>🎧 Sleep Music</span>
+            </button>
+          </div>
+
+          <div class="end-day-hero-row">
+            <div>
+              <h2 class="schedule-main-title">End Your Day 🌙</h2>
+              <p class="schedule-subtitle">Review today's steady progress, reschedule unfinished tasks without guilt, and sleep in peace</p>
+            </div>
+            <div class="day-closing-avatar">
+              <span class="moon-mascot">🌕</span>
+            </div>
+          </div>
+
+          <!-- Section Switcher Tabs within End Your Day -->
+          <div class="end-day-tab-pills">
+            <button class="pill-btn active" id="tab-end-day-summary" data-target-sub="section-progress-review">📊 Today's Review</button>
+            <button class="pill-btn" id="tab-end-day-reschedule" data-target-sub="section-reschedule-tasks">⏳ Reschedule (<span id="end-day-pending-count">2</span>)</button>
+            <button class="pill-btn" id="tab-end-day-tomorrow" data-target-sub="section-tomorrow-preview">🌅 Tomorrow's Schedule</button>
+          </div>
+        </div>
+
+        <!-- 1. DAILY PROGRESS & ACCOMPLISHMENTS SUMMARY -->
+        <div class="end-day-card" id="section-progress-review">
+          <div class="card-inner-header">
+            <div class="header-with-badge">
+              <span class="section-icon">📈</span>
+              <div>
+                <h3 class="end-day-section-title">Today's Rhythm & Accomplishments</h3>
+                <p class="end-day-section-sub">Celebrate what you completed today—every step counts!</p>
+              </div>
+            </div>
+            <span class="streak-badge" id="end-day-streak-badge">🔥 5-Day Study Rhythm</span>
+          </div>
+
+          <!-- Ring Progress & Metrics -->
+          <div class="progress-ring-card end-day-ring-box">
+            <div class="ring-graphic">
+              <svg viewBox="0 0 120 120" width="100" height="100" class="circle-svg">
+                <circle cx="60" cy="60" r="48" stroke="#E2E8F0" stroke-width="10" fill="none"/>
+                <circle id="end-day-circle-meter" cx="60" cy="60" r="48" stroke="#10B981" stroke-width="10" 
+                        fill="none" stroke-linecap="round" stroke-dasharray="301.59" stroke-dashoffset="75.4"/>
+              </svg>
+              <div class="ring-center-text">
+                <span class="ring-percent" id="end-day-pct-label">75%</span>
+                <span class="ring-label">Done</span>
+              </div>
+            </div>
+            
+            <div class="ring-summary">
+              <h4 id="end-day-affirmation-title">Steady & Balanced Rhythm!</h4>
+              <p id="end-day-affirmation-desc">You made real progress on difficult subjects today. Rest is an essential part of learning.</p>
+              <div class="task-summary-chips">
+                <span class="chip-metric green"><strong id="metric-tasks-done">2</strong> Tasks Finished</span>
+                <span class="chip-metric amber"><strong id="metric-tasks-pending">2</strong> Unfinished</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Completed Tasks List -->
+          <div class="completed-tasks-block">
+            <h4 class="sub-block-title">✅ Accomplished Today</h4>
+            <div class="completed-tasks-list" id="end-day-completed-list">
+              <!-- Dynamically populated with done tasks -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. RESCHEDULING UNFINISHED TASKS (WITH ACCEPT & UNDO) -->
+        <div class="end-day-card highlight-reschedule" id="section-reschedule-tasks">
+          <div class="card-inner-header">
+            <div class="header-with-badge">
+              <span class="section-icon">⏳</span>
+              <div>
+                <h3 class="end-day-section-title">Reschedule Unfinished Tasks</h3>
+                <p class="end-day-section-sub">No guilt, no cramming. Let's place them gently into tomorrow's open hours.</p>
+              </div>
+            </div>
+            <span class="status-pill" id="reschedule-status-badge">Proposed Plan Ready</span>
+          </div>
+
+          <!-- Unfinished Tasks List with Proposed Slots -->
+          <div class="reschedule-items-container" id="reschedule-items-list">
+            <!-- Dynamically populated with pending tasks and suggested tomorrow times -->
+          </div>
+
+          <!-- ACCEPT & UNDO Action Buttons -->
+          <div class="reschedule-actions-panel">
+            <div class="reschedule-btn-group">
+              <button class="btn-reschedule-accept" id="btn-accept-reschedule">
+                <span class="btn-check">✓</span>
+                <span>ACCEPT Rescheduling</span>
+              </button>
+              <button class="btn-reschedule-undo" id="btn-undo-reschedule" title="Revert to today's schedule">
+                <span>↩ UNDO</span>
+              </button>
+            </div>
+            <p class="reschedule-disclaimer" id="reschedule-disclaimer-text">
+              Accepting automatically fits these tasks into tomorrow's free slots after school and tuition.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2B. ADD MORE TASKS FOR TOMORROW'S SCHEDULE (STUDENT PLAN AHEAD) -->
+        <div class="end-day-card card-add-tomorrow" id="section-add-tomorrow-tasks">
+          <div class="card-inner-header">
+            <div class="header-with-badge">
+              <span class="section-icon">📝</span>
+              <div>
+                <h3 class="end-day-section-title">Add More Tasks for Tomorrow's Schedule</h3>
+                <p class="end-day-section-sub">Prepare in advance. Add extra study tasks, chapters or revisions directly to tomorrow's timetable.</p>
+              </div>
+            </div>
+            <button class="btn-toggle-tomorrow-form" id="btn-toggle-tomorrow-form" type="button">
+              <span id="btn-tomorrow-form-text">➕ Add Task for Tomorrow</span>
+            </button>
+          </div>
+
+          <!-- Quick Add Form for Tomorrow (Toggled) -->
+          <form class="tomorrow-task-form" id="form-add-tomorrow-task" style="display: none;">
+            <div class="tomorrow-form-row">
+              <div class="tomorrow-input-group flex-2">
+                <label for="tomorrow-task-title">Tomorrow's Task Title <span class="req">*</span></label>
+                <input type="text" id="tomorrow-task-title" placeholder="e.g. Science Chapter 5 Numerical Questions, English Essay" required>
+              </div>
+              <div class="tomorrow-input-group flex-1">
+                <label for="tomorrow-task-subject">Subject / Subject Area</label>
+                <input type="text" id="tomorrow-task-subject" placeholder="e.g. Physics, History, Math">
+              </div>
+            </div>
+
+            <div class="tomorrow-form-row">
+              <div class="tomorrow-input-group flex-1">
+                <label for="tomorrow-task-slot">Preferred Tomorrow Time Slot</label>
+                <select id="tomorrow-task-slot">
+                  <option value="06:45 - 07:15">Early Morning Focus (06:45 AM - 07:15 AM)</option>
+                  <option value="15:00 - 16:15">After-School Study Block (03:00 PM - 04:15 PM)</option>
+                  <option value="19:15 - 20:30" selected>Evening Homework Slot (07:15 PM - 08:30 PM)</option>
+                  <option value="21:15 - 22:00">Night Concept Revision (09:15 PM - 10:00 PM)</option>
+                  <option value="custom">Custom Time Slot</option>
+                </select>
+              </div>
+              <div class="tomorrow-input-group flex-1" id="tomorrow-custom-time-row" style="display: none;">
+                <label for="tomorrow-custom-time">Custom Slot (e.g. 17:30 - 18:30)</label>
+                <input type="text" id="tomorrow-custom-time" placeholder="17:30 - 18:30">
+              </div>
+              <div class="tomorrow-input-group flex-1">
+                <label for="tomorrow-task-category">Category</label>
+                <select id="tomorrow-task-category">
+                  <option value="Academic">📚 Academic Study</option>
+                  <option value="Homework">✍️ Tuition Homework</option>
+                  <option value="Revision">🔄 Quick Revision</option>
+                  <option value="Exam Prep">📝 Test Preparation</option>
+                  <option value="Hobby">🎨 Hobby / Creative</option>
+                </select>
+              </div>
+              <div class="tomorrow-input-group flex-1">
+                <label for="tomorrow-task-priority">Priority</label>
+                <select id="tomorrow-task-priority">
+                  <option value="High">🔴 High Priority</option>
+                  <option value="Medium" selected>🟡 Medium Priority</option>
+                  <option value="Low">🟢 Low Priority</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="tomorrow-form-actions">
+              <button type="button" class="btn-cancel-tomorrow" id="btn-cancel-tomorrow-task">Cancel</button>
+              <button type="submit" class="btn-save-tomorrow" id="btn-submit-tomorrow-task">
+                <span>➕ Save to Tomorrow's Schedule</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- List of Tasks Added Specially for Tomorrow -->
+          <div class="tomorrow-added-container">
+            <h4 class="tomorrow-added-subhead">📋 Tasks Planned Ahead for Tomorrow:</h4>
+            <div class="tomorrow-added-list" id="tomorrow-added-tasks-list">
+              <!-- Dynamically populated or shows friendly empty message -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TOMORROW'S SCHEDULE PREVIEW -->
+        <div class="end-day-card" id="section-tomorrow-preview">
+          <div class="card-inner-header">
+            <div class="header-with-badge">
+              <span class="section-icon">🌅</span>
+              <div>
+                <h3 class="end-day-section-title">Tomorrow's Schedule Preview</h3>
+                <p class="end-day-section-sub">Wake up with clarity. Here is how tomorrow looks with your commitments.</p>
+              </div>
+            </div>
+            <span class="category-pill cat-routine">Friday Preview</span>
+          </div>
+
+          <div class="tomorrow-timeline-list" id="tomorrow-preview-timeline">
+            <!-- Dynamically populated tomorrow blocks -->
+          </div>
+        </div>
+
+        <!-- Bottom Navigation Link to Music -->
+        <div class="end-day-footer-nav">
+          <button class="btn-next-step-music" id="btn-goto-music-from-endday">
+            <span>Next: Choose Your Mood & End with a Song ➔</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SCREEN 4: MUSIC & MOOD SANCTUARY (ENDS THE DAY)-->
+      <!-- ============================================== -->
+      <section class="screen-content music-screen" id="screen-music">
+        
+        <div class="schedule-header-card music-header-card">
+          <div class="schedule-top-nav">
+            <button class="btn-back-home" id="btn-back-from-music" title="Return to Dashboard">
+              <span>← Dashboard</span>
+            </button>
+            <div class="schedule-rhythm-badge">
+              <span class="rhythm-pulse-dot"></span>
+              <span class="rhythm-badge-text">Ends the Day with a Song</span>
+            </div>
+            <button class="btn-back-to-review" id="btn-back-to-schedule-from-music" title="Go to End Your Day Review">
+              <span>⏳ Task Review</span>
+            </button>
+          </div>
+
+          <div class="music-hero-text">
+            <h2 class="schedule-main-title">Ends the Day with a Song 🎧</h2>
+            <p class="schedule-subtitle">Tune into your evening mood. Peaceful tones, rain and steady metronome pulses.</p>
+          </div>
+        </div>
+
+        <!-- Mood Selector Bar -->
+        <div class="mood-selector-container">
+          <h4 class="mood-selector-title">How are you feeling tonight?</h4>
+          <div class="mood-chips-row" id="mood-chips-container">
+            <button class="mood-chip active" data-mood="calm">
+              <span>😌 Calm & Content</span>
+            </button>
+            <button class="mood-chip" data-mood="sleepy">
+              <span>😴 Sleepy & Tired</span>
+            </button>
+            <button class="mood-chip" data-mood="proud">
+              <span>🌟 Proud of Today</span>
+            </button>
+            <button class="mood-chip" data-mood="decompress">
+              <span>🧘 Need to Decompress</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Music Player Card -->
+        <div class="music-player-card">
+          <!-- YouTube Video / Song Player Container -->
+          <div class="youtube-player-container" id="youtube-player-container" style="display: none;">
+            <iframe id="youtube-iframe" src="" title="YouTube Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+
+          <!-- Uploaded / HTML5 Audio Element -->
+          <audio id="audio-native-player" controls style="display: none; width: 100%; margin: 10px 0; border-radius: 20px; outline: none;"></audio>
+
+          <div class="music-disc-visual" id="music-disc-visual">
+            <span class="note-floating">🎵</span>
+            <span class="note-floating note-2">🎶</span>
+            <div class="disc-center">🏡</div>
+          </div>
+
+          <div class="music-info-box">
+            <div class="music-badges-row">
+              <span class="music-mood-badge" id="song-mood-badge">Preset: Calm & Content</span>
+              <span class="music-source-badge" id="song-source-badge">Built-in Chimes</span>
+            </div>
+            <h3 class="song-title-text" id="song-title">Twilight Study Chimes</h3>
+            <p class="song-desc-text" id="song-desc">Gentle pentatonic bells & soft 60 BPM metronome tick to ease the mind</p>
+            <div class="song-tempo-pill">
+              <span>Tempo: <strong id="song-tempo-display">60</strong> BPM • Steady Pulse</span>
+            </div>
+          </div>
+
+          <div class="music-controls-row">
+            <button class="btn-play-song" id="btn-play-peaceful-song">
+              <span id="music-play-symbol">▶</span>
+              <span id="music-play-label">Play Tonight's Song</span>
+            </button>
+          </div>
+
+          <!-- YouTube & Download / Keep Actions -->
+          <div class="music-player-extra-actions" id="music-extra-actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-player-action btn-act-yt" id="btn-open-youtube-external" style="display: none;">
+              <span>🎥 Watch / Listen on YouTube ↗</span>
+            </a>
+            <button type="button" class="btn-player-action btn-act-download" id="btn-download-keep-song" title="Download audio or keep this track offline in your library">
+              <span>📥 Download / Keep Audio</span>
+            </button>
+          </div>
+
+          <div class="music-tempo-slider-wrap">
+            <label for="music-bpm-adjust" class="slider-label">Metronome Tempo: <span id="music-slider-bpm">60</span> BPM</label>
+            <input type="range" id="music-bpm-adjust" min="40" max="100" value="60" step="2" class="cozy-slider">
+          </div>
+        </div>
+
+        <!-- MULTI-LANGUAGE SONG PROVISION & LIBRARY (English, Hindi, and Student's Choice) -->
+        <div class="music-library-section">
+          <div class="music-library-header">
+            <div>
+              <h3 class="library-title">🎵 Song Choices (Hindi, English & Your Favorites)</h3>
+              <p class="library-sub">Choose peaceful music in your preferred language or add your own favorite track</p>
+            </div>
+            <button class="btn-add-custom-song" id="btn-open-add-song" title="Add a song of your choice">
+              <span>+ Add Song of Choice</span>
+            </button>
+          </div>
+
+          <!-- Language Filter Tabs -->
+          <div class="language-filter-tabs" id="lang-filter-tabs">
+            <button class="lang-tab-btn active" data-lang="all">🌐 All Songs</button>
+            <button class="lang-tab-btn" data-lang="Hindi">🇮🇳 Hindi Songs</button>
+            <button class="lang-tab-btn" data-lang="English">🇬🇧 English Songs</button>
+            <button class="lang-tab-btn" data-lang="other">🌸 Other Languages</button>
+            <button class="lang-tab-btn" data-lang="custom">⭐ My Added Songs</button>
+          </div>
+
+          <!-- Songs Playlist Grid -->
+          <div class="songs-playlist-grid" id="songs-playlist-container">
+            <!-- Dynamically populated with Hindi, English, and custom student songs -->
+          </div>
+        </div>
+
+        <!-- Bedtime Wind-Down Box -->
+        <div class="bedtime-reminder-card">
+          <div class="bedtime-icon">🌙</div>
+          <div class="bedtime-content">
+            <h4>Sweet Home Wind-Down</h4>
+            <p>Target sleep time: <strong>10:30 PM</strong>. Power down blue screens, relax your shoulders, and wake gently at <strong>06:00 AM</strong>.</p>
+          </div>
+        </div>
+
+        <div class="music-footer-action">
+          <button class="btn-primary-return" id="btn-return-home-4">
+            Return to Home Dashboard
+          </button>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- SECTION G: FIXED BOTTOM NAVIGATION BAR         -->
+    <!-- Fixed 4 options as per sketch & instructions   -->
+    <!-- ============================================== -->
+    <nav class="bottom-nav-bar" id="bottom-nav">
+      
+      <!-- 1. HOME -->
+      <button class="nav-item active" data-target="screen-home" id="nav-btn-home">
+        <div class="nav-icon-wrap">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <span class="nav-label">Home</span>
+      </button>
+
+      <!-- 2. TODAY'S SCHEDULE -->
+      <button class="nav-item" data-target="screen-schedule" id="nav-btn-schedule">
+        <div class="nav-icon-wrap">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <span class="nav-label">Today's Schedule</span>
+      </button>
+
+      <!-- 3. PENDING TASKS -->
+      <button class="nav-item" data-target="screen-pending" id="nav-btn-pending">
+        <div class="nav-icon-wrap">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <span class="nav-label">Pending Task</span>
+      </button>
+
+      <!-- 4. MUSIC -->
+      <button class="nav-item" data-target="screen-music" id="nav-btn-music">
+        <div class="nav-icon-wrap">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+          </svg>
+        </div>
+        <span class="nav-label">Music</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL / DRAWER: PERSONAL CORNER (SECTION E)    -->
+  <!-- Comprehensive Profile & Routine Settings Form   -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="modal-personal-corner">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-emoji">🏡</span>
+          <div>
+            <h3 class="modal-title">Personal Corner ♡</h3>
+            <p class="modal-subtitle">Your routine preferences help craft realistic timetables</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-personal-modal" title="Close">&times;</button>
+      </div>
+
+      <form class="modal-body form-personal-corner" id="form-personal-profile">
+        
+        <!-- 1. Name & Class -->
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="input-student-name">Student's Name <span class="req">*</span></label>
+            <input type="text" id="input-student-name" required placeholder="e.g. Shweta">
+          </div>
+          <div class="form-group">
+            <label for="select-student-class">Class / Grade <span class="req">*</span></label>
+            <select id="select-student-class" required>
+              <option value="9th">Class 9th</option>
+              <option value="10th">Class 10th</option>
+              <option value="11th">Class 11th</option>
+              <option value="12th">Class 12th</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 2. Preferred Subjects -->
+        <div class="form-group">
+          <label for="input-subjects">Preferred Subjects</label>
+          <input type="text" id="input-subjects" placeholder="e.g. Mathematics, Physics, Biology, English">
+          <span class="field-hint">Subjects you are currently studying or enjoy most</span>
+        </div>
+
+        <!-- 3. Hobbies and Interests -->
+        <div class="form-group">
+          <label for="input-hobbies">Hobbies & Interests</label>
+          <input type="text" id="input-hobbies" placeholder="e.g. Sketching, reading fiction, badminton, coding">
+        </div>
+
+        <!-- 4. School & Tuition Timings -->
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="input-school-timings">🏫 School/College Timings</label>
+            <input type="text" id="input-school-timings" placeholder="07:45 AM - 02:00 PM">
+          </div>
+          <div class="form-group">
+            <label for="input-tuition-timings">✍️ Tuition Timings</label>
+            <input type="text" id="input-tuition-timings" placeholder="04:30 PM - 06:30 PM">
+          </div>
+        </div>
+
+        <!-- 5. Sleep & Wake-up Timings -->
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="input-wake-time">☀️ Wake-Up Time</label>
+            <input type="time" id="input-wake-time" value="06:00">
+          </div>
+          <div class="form-group">
+            <label for="input-sleep-time">🌙 Usual Sleep Time</label>
+            <input type="time" id="input-sleep-time" value="22:30">
+          </div>
+        </div>
+
+        <!-- 6. Meal Timings -->
+        <div class="form-row three-col">
+          <div class="form-group">
+            <label for="input-breakfast-time">🍳 Breakfast</label>
+            <input type="time" id="input-breakfast-time" value="07:15">
+          </div>
+          <div class="form-group">
+            <label for="input-lunch-time">🍲 Lunch</label>
+            <input type="time" id="input-lunch-time" value="13:30">
+          </div>
+          <div class="form-group">
+            <label for="input-dinner-time">🥗 Dinner</label>
+            <input type="time" id="input-dinner-time" value="20:30">
+          </div>
+        </div>
+
+        <!-- 7. Free-time activities -->
+        <div class="form-group">
+          <label for="input-freetime">Free-Time & Relaxation Activities</label>
+          <input type="text" id="input-freetime" placeholder="e.g. Listening to chill music, terrace walk, journaling">
+        </div>
+
+        <!-- 8. Learning Pace -->
+        <div class="form-group">
+          <label for="input-learning-pace">Learning Pace</label>
+          <input type="text" id="input-learning-pace" placeholder="e.g. 12-15 questions per hour / 1 chapter in 1.5 hours">
+          <span class="field-hint">Helps the metronome algorithm assign realistic durations</span>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="btn-reset-demo-data">Reset to Default Data</button>
+          <button type="submit" class="btn-primary-save">Save Personal Preferences</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: DETAILED PROGRESS DASHBOARD (SECTION D) -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="modal-progress-details">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-emoji">🎁</span>
+          <div>
+            <h3 class="modal-title">Track Your Progress</h3>
+            <p class="modal-subtitle">Your steady momentum across day, week & month</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-progress-modal" title="Close">&times;</button>
+      </div>
+
+      <div class="modal-body progress-detail-body">
+        
+        <!-- Big Progress Ring -->
+        <div class="progress-ring-card">
+          <div class="ring-graphic">
+            <svg viewBox="0 0 120 120" width="110" height="110" class="circle-svg">
+              <circle cx="60" cy="60" r="48" stroke="#E2E8F0" stroke-width="10" fill="none"/>
+              <circle id="progress-circle-meter" cx="60" cy="60" r="48" stroke="#10B981" stroke-width="10" 
+                      fill="none" stroke-linecap="round" stroke-dasharray="301.59" stroke-dashoffset="75.4"/>
+            </svg>
+            <div class="ring-center-text">
+              <span class="ring-percent" id="modal-ring-percentage">75%</span>
+              <span class="ring-label">Overall</span>
+            </div>
+          </div>
+          
+          <div class="ring-summary">
+            <h4>Steady Rhythm Score</h4>
+            <p id="progress-encouragement-text">You are maintaining a wonderful rhythm today! Consistency beats hurry.</p>
+            <div class="streak-badge">
+              <span>🔥 5-Day Study Rhythm Streak</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Breakdown Cards -->
+        <div class="progress-cards-trio">
+          
+          <!-- Daily Progress -->
+          <div class="progress-mini-card">
+            <div class="card-top">
+              <span class="p-period">Daily Progress</span>
+              <span class="p-ratio" id="daily-progress-ratio">3/4 Tasks</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar-fill daily-fill" id="daily-bar-fill" style="width: 75%;"></div>
+            </div>
+            <div class="card-bottom">
+              <span id="daily-progress-pct-label">75% Complete</span>
+            </div>
+          </div>
+
+          <!-- Weekly Progress -->
+          <div class="progress-mini-card">
+            <div class="card-top">
+              <span class="p-period">Weekly Progress</span>
+              <span class="p-ratio" id="weekly-progress-ratio">2/4 Goals</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar-fill weekly-fill" id="weekly-bar-fill" style="width: 50%;"></div>
+            </div>
+            <div class="card-bottom">
+              <span id="weekly-progress-pct-label">50% Complete</span>
+            </div>
+          </div>
+
+          <!-- Monthly Progress -->
+          <div class="progress-mini-card">
+            <div class="card-top">
+              <span class="p-period">Monthly Progress</span>
+              <span class="p-ratio" id="monthly-progress-ratio">2/4 Goals</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar-fill monthly-fill" id="monthly-bar-fill" style="width: 50%;"></div>
+            </div>
+            <div class="card-bottom">
+              <span id="monthly-progress-pct-label">50% Complete</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tasks-accomplished-summary">
+          <h4>Accomplished Tasks Summary</h4>
+          <div id="accomplished-items-list" class="accomplished-list">
+            <!-- Dynamic list of done goals -->
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-primary-return" id="btn-close-progress-action">Back to Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: ADD / EDIT SCHEDULE TASK (SCREEN 2)    -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="modal-task-form">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-emoji">⏰</span>
+          <div>
+            <h3 class="modal-title" id="modal-task-form-title">Add New Task to Schedule</h3>
+            <p class="modal-subtitle">Keep your study timetable realistic and unhurried</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-task-modal" title="Close">&times;</button>
+      </div>
+
+      <form class="modal-body form-task-editor" id="form-schedule-task">
+        <input type="hidden" id="input-task-id" value="">
+
+        <!-- Title -->
+        <div class="form-group">
+          <label for="input-task-title">Task Title <span class="req">*</span></label>
+          <input type="text" id="input-task-title" required placeholder="e.g. Maths: Solve 15 Trigonometry Questions" maxlength="100">
+        </div>
+
+        <!-- Category & Subject -->
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="select-task-category">Category <span class="req">*</span></label>
+            <select id="select-task-category" required>
+              <option value="Academic">📚 Academic Study</option>
+              <option value="Homework">✍️ Tuition / Homework</option>
+              <option value="Revision">🔁 Quick Revision</option>
+              <option value="Routine">⏰ Daily Routine</option>
+              <option value="Hobby">🎨 Hobby / Free Time</option>
+              <option value="Health">🧘 Health & Wellness</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="input-task-subject">Subject</label>
+            <input type="text" id="input-task-subject" placeholder="e.g. Mathematics, Science, English">
+          </div>
+        </div>
+
+        <!-- Time Slot: Start Time & End Time -->
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="input-task-start-time">Scheduled Start Time <span class="req">*</span></label>
+            <input type="time" id="input-task-start-time" required value="19:15">
+          </div>
+          <div class="form-group">
+            <label for="input-task-end-time">Scheduled End Time <span class="req">*</span></label>
+            <input type="time" id="input-task-end-time" required value="20:30">
+          </div>
+        </div>
+
+        <!-- Duration & Priority -->
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="input-task-duration">Duration (minutes) <span class="req">*</span></label>
+            <input type="number" id="input-task-duration" min="10" max="240" step="5" value="60" required>
+            <span class="field-hint">e.g. 45m, 60m (matches your learning pace)</span>
+          </div>
+          <div class="form-group">
+            <label for="select-task-priority">Priority Level <span class="req">*</span></label>
+            <select id="select-task-priority" required>
+              <option value="High">🔴 High Priority</option>
+              <option value="Medium" selected>🟡 Medium Priority</option>
+              <option value="Low">🟢 Low Priority</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Due Date / Target -->
+        <div class="form-group">
+          <label for="input-task-due-date">Due Date / Target</label>
+          <input type="text" id="input-task-due-date" placeholder="e.g. Today, Tomorrow, Friday Evening" value="Today">
+        </div>
+
+        <!-- Notes / Specific target -->
+        <div class="form-group">
+          <label for="input-task-notes">Notes or Question Target</label>
+          <input type="text" id="input-task-notes" placeholder="e.g. 15 questions based on 12 Q/hr pace, formula check">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="btn-cancel-task-form">Cancel</button>
+          <button type="submit" class="btn-primary-save" id="btn-submit-task-form">Save to Today's Schedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: STUDENT AUTHENTICATION (SIGN UP & LOGIN) -->
+  <!-- Database login ensuring zero data loss on reload-->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="modal-auth">
+    <div class="modal-dialog auth-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-emoji">🏡</span>
+          <div>
+            <h3 class="modal-title" id="auth-modal-title">Student Account & Database</h3>
+            <p class="modal-subtitle">Each user has their own private space. Data never disappears on refresh.</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-auth-modal" title="Close">&times;</button>
+      </div>
+
+      <div class="auth-tabs-bar">
+        <button class="auth-tab-btn active" id="tab-auth-login" data-tab="login">🔑 Log In</button>
+        <button class="auth-tab-btn" id="tab-auth-signup" data-tab="signup">✨ Create Account (Sign Up)</button>
+      </div>
+
+      <div class="modal-body auth-modal-body">
+        
+        <!-- Log In Form -->
+        <form class="auth-form active" id="form-login">
+          <div class="form-group">
+            <label for="auth-login-email">Student Email Address <span class="req">*</span></label>
+            <input type="email" id="auth-login-email" required placeholder="e.g. shweta@student.edu">
+          </div>
+          <div class="form-group">
+            <label for="auth-login-password">Password <span class="req">*</span></label>
+            <input type="password" id="auth-login-password" required placeholder="Enter your password">
+          </div>
+          <div class="auth-error-msg" id="auth-login-error" style="display:none;"></div>
+          
+          <button type="submit" class="btn-primary-auth" id="btn-submit-login">Log In to My Account</button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form class="auth-form" id="form-signup" style="display:none;">
+          <div class="form-group">
+            <label for="auth-signup-name">Student's Name <span class="req">*</span></label>
+            <input type="text" id="auth-signup-name" required placeholder="e.g. Shweta, Aarav, Ananya">
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="auth-signup-class">Class / Grade <span class="req">*</span></label>
+              <select id="auth-signup-class" required>
+                <option value="9th">Class 9th</option>
+                <option value="10th" selected>Class 10th</option>
+                <option value="11th">Class 11th</option>
+                <option value="12th">Class 12th</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="auth-signup-email">Email Address <span class="req">*</span></label>
+              <input type="email" id="auth-signup-email" required placeholder="student@school.org">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="auth-signup-password">Create Password <span class="req">*</span></label>
+            <input type="password" id="auth-signup-password" required placeholder="Minimum 4 characters">
+          </div>
+          <div class="auth-error-msg" id="auth-signup-error" style="display:none;"></div>
+
+          <button type="submit" class="btn-primary-auth" id="btn-submit-signup">Create My Account</button>
+        </form>
+
+        <!-- Quick Demo Account Access -->
+        <div class="auth-quick-demo">
+          <span class="or-divider">── OR ──</span>
+          <button type="button" class="btn-demo-switch" id="btn-auth-demo-shweta">
+            <span>⚡ Quick Access: Demo Account (Shweta)</span>
+          </button>
+        </div>
+
+        <div class="privacy-guarantee-note">
+          <span>🔒 <strong>Student Privacy Protected:</strong> We store only your study schedule, academic preferences and goals. No phone numbers, home addresses, or sensitive personal details are ever collected.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: ADD SONG OF CHOICE (MULTI-LANGUAGE)     -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="modal-add-song">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-emoji">🎵</span>
+          <div>
+            <h3 class="modal-title">Add Song of Your Choice</h3>
+            <p class="modal-subtitle">Add English, Hindi, or any language song you enjoy listening to at night</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-song-modal" title="Close">&times;</button>
+      </div>
+
+      <form class="modal-body form-song-editor" id="form-add-custom-song">
+        <div class="form-group">
+          <label for="input-song-title">Song Title <span class="req">*</span></label>
+          <input type="text" id="input-song-title" required placeholder="e.g. Iktara, Kesariya, Yellow, Golden Hour, Ghibli Lofi">
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="select-song-language">Song Language <span class="req">*</span></label>
+            <select id="select-song-language" required>
+              <option value="Hindi">🇮🇳 Hindi</option>
+              <option value="English">🇬🇧 English</option>
+              <option value="Punjabi">🇮🇳 Punjabi</option>
+              <option value="Bengali">🇮🇳 Bengali</option>
+              <option value="Tamil">🇮🇳 Tamil</option>
+              <option value="Telugu">🇮🇳 Telugu</option>
+              <option value="Korean">🇰🇷 Korean</option>
+              <option value="Japanese">🇯🇵 Japanese</option>
+              <option value="Spanish">🇪🇸 Spanish</option>
+              <option value="Instrumental">🎻 Instrumental</option>
+              <option value="Other">🌐 Other Language</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="input-song-artist">Artist / Style</label>
+            <input type="text" id="input-song-artist" placeholder="e.g. Acoustic Lofi, Flute, Piano">
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="select-song-mood">Evening Mood</label>
+            <select id="select-song-mood">
+              <option value="calm">😌 Calm & Content</option>
+              <option value="sleepy">😴 Sleepy & Restful</option>
+              <option value="proud">🌟 Proud of Today</option>
+              <option value="decompress">🧘 Need to Decompress</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="input-song-tempo">Preferred Metronome Tempo</label>
+            <select id="input-song-tempo">
+              <option value="48">48 BPM (Deep Sleep / Very Slow)</option>
+              <option value="60" selected>60 BPM (Golden Metronome Pace)</option>
+              <option value="66">66 BPM (Gentle Uplift)</option>
+              <option value="72">72 BPM (Restful Balance)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- YouTube Video / Song URL Provision -->
+        <div class="form-group yt-input-highlight">
+          <label for="input-song-youtube">
+            <span>📺 YouTube Video / Song URL</span>
+            <span class="source-tag-pill">Plays Directly in App</span>
+          </label>
+          <input type="url" id="input-song-youtube" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/...">
+          <small class="field-hint">Paste any YouTube song or lofi track link (Hindi, English, Classical, Lofi, etc.).</small>
+        </div>
+
+        <div class="form-row two-col">
+          <!-- Audio File Upload (Download / Keep Offline) -->
+          <div class="form-group">
+            <label for="input-song-file">
+              <span>📁 Upload Audio File</span>
+              <span class="source-tag-pill">Keep Offline in DB</span>
+            </label>
+            <input type="file" id="input-song-file" accept="audio/*">
+            <small class="field-hint">Upload an MP3/WAV/M4A to keep permanently on this device.</small>
+          </div>
+
+          <!-- Custom Stream / Web URL -->
+          <div class="form-group">
+            <label for="input-song-url">
+              <span>🌐 Or Custom MP3 Stream Link</span>
+            </label>
+            <input type="url" id="input-song-url" placeholder="https://example.com/relaxing-audio.mp3">
+            <small class="field-hint">Direct audio file URL (optional)</small>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="btn-cancel-song-form">Cancel</button>
+          <button type="submit" class="btn-primary-save" id="btn-submit-song-form">Save Song to My Library</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notice" id="toast-container"></div>
+
+  <!-- Main JavaScript Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
